@@ -1,4 +1,9 @@
-NAME = libftprintf.a
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror
+RM			= rm -f
+
+NAME		= libftprintf.a
+INCLUDE		= ft_printf.h
 
 SRCS =	ft_flag_parse.c \
 	ft_printf.c ft_flags.c ft_parse_types.c \
@@ -7,26 +12,27 @@ SRCS =	ft_flag_parse.c \
 	ft_type_u.c ft_itoa_ull.c \
 	ft_itoa.c ft_printf_utils.c  ft_printf_utils2.c\
 
-OBJS = $(SRCS:.c=.o)
+OBJS		= $(SRCS:.c=.o)
 
-CC = gcc
+all:		$(NAME)
 
-FLAGS = -c -I -Wall -Wetra -Werror
+$(NAME):	$(OBJS) $(INCLUDE)
+			ar -rcs $(NAME) $(OBJS)
+			ranlib	$(NAME)
 
-$(NAME): $(OBJS)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+bonus:		$(NAME)
 
-all: $(NAME)
-
-bonus: $(NAME)
+.c.o:
+			$(CC) $(CFLAGS) -I$(INCLUDE) -c $< -o $(<:.c=.o)
 
 clean:
-	rm -f $(OBJS)
+			$(RM) $(OBJS) $(BONUS_O)
 
-fclean: clean
-	rm -f $(NAME)
+fclean:		clean
+			$(RM) $(NAME)
 
-re: fclean all
+re:			fclean all
 
-.PHONY: clean fclean all re
+rebonus:	fclean bonus
+
+.PHONY:		all clean fclean re bonus rebonus

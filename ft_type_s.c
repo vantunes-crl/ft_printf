@@ -6,7 +6,7 @@
 /*   By: vantunes <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/22 15:37:05 by vantunes          #+#    #+#             */
-/*   Updated: 2021/03/24 16:46:45 by vantunes         ###   ########.fr       */
+/*   Updated: 2021/03/27 17:07:29 by vantunes         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ static	int		ft_isminuss(t_flags *flags, char *str)
 int				ft_isstring(t_flags *flags, char *str)
 {
 	int char_count;
-	int prec;
 
 	char_count = 0;
 	if (!str)
